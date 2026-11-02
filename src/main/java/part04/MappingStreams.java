@@ -138,8 +138,18 @@ public class MappingStreams {
          * - if the number is divisible by 5, the string is "Buzz"
          * - otherwise, the string is the number as a string
          */
-
-        // hint: see the mapToObj() method in IntStream
-        return null; // TODO
+          // hint: see the mapToObj() method in IntStream
+        return numbers.mapToObj(numero -> {
+         if (numero % 3 == 0 && numero % 5 == 0) {
+            return "FizzBuzz";
+        }
+        if (numero % 3 == 0) {
+            return "Fizz";
+        }
+        if(numero % 5 == 0) {
+            return "Buzz";
+        }
+        return String.valueOf(numero);
+        });
     }
 }
