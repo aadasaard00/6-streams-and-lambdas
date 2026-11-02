@@ -31,7 +31,9 @@ public class MappingStreams {
      */
     public IntStream doubleValuesInStream(IntStream numbers) {
         // hint: use the map() method to double the values in the stream.
-        return null; // TODO
+       // Lambda lauseke tarkoittaa että tehdään anonyymi metodi
+       // joka saa 0-N parametriä ja metori suoritetaan heti
+        return numbers.map((numero) -> numero * 2); 
     }
 
     /**
@@ -44,7 +46,7 @@ public class MappingStreams {
      */
     public IntStream multiplyValuesInStream(IntStream numbers, int multiplier) {
         // hint: use the map() method to multiply the values in the stream.
-        return null; // TODO
+        return numbers.map(numero -> numero * multiplier); // TODO
     }
 
     /**
@@ -58,7 +60,8 @@ public class MappingStreams {
          * hint: First, use the stream() method to create a Stream<Integer>.
          * Then, use mapToInt() method to convert that to an IntStream.
          */
-        return null; // TODO
+
+        return numbers.stream().mapToInt(Integer::intValue); 
     }
 
     /**
@@ -76,7 +79,7 @@ public class MappingStreams {
      */
     public Stream<String> prefixAllStrings(Stream<String> strings, String prefix) {
         // hint: once again, use the map() method to add the prefix
-        return null; // TODO
+        return strings.map(kurssi -> prefix + kurssi);
     }
 
     /**
@@ -92,10 +95,10 @@ public class MappingStreams {
      * @return a stream of strings with the suffix added
      */
     public Stream<String> suffixAllStrings(Stream<String> strings, String suffix) {
-        return null; // TODO
+        return strings.map(alku -> alku + suffix);
     }
 
-    /**
+     /**
      * Returns a stream where all the strings in the given stream have the specified
      * suffix removed. For example, if the suffix is ".txt", the stream
      * {"uhat.txt", "mahdollisuudet.txt", "vahvuudet.csv"} would become {"uhat",
@@ -113,7 +116,7 @@ public class MappingStreams {
          * hint: If your expression is too complex, you can define a separate method
          * that you call from the lambda expression.
          */
-        return null; // TODO
+        return strings.map(loppu -> loppu.endsWith(suffix)? loppu.substring(0, loppu.length() - suffix.length()) : loppu);
     }
 
     /**
